@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mi-app:
+    image: mi-app
+    networks:
+      red-nodejs:
+        ipv4_address: 172.30.0.10
+    ports:
+      - "8080:8080"
+
+networks:
+  red-nodejs:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.30.0.0/16
